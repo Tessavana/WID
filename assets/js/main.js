@@ -30,8 +30,9 @@
     if (cfg.instagramUrl) { a.href = cfg.instagramUrl; a.target = "_blank"; a.rel = "noopener"; }
   });
   document.querySelectorAll("[data-tickets]").forEach(function (a) {
+    if (a.getAttribute("href") && a.getAttribute("href") !== "#") { a.target = "_blank"; a.rel = "noopener"; return; }
     if (cfg.ticketsUrl) { a.href = cfg.ticketsUrl; a.target = "_blank"; a.rel = "noopener"; }
-    else { a.href = "contact.html"; }
+    else { a.href = a.getAttribute("data-fallback") || "contact.html"; }
   });
   document.querySelectorAll("[data-email-link]").forEach(function (a) {
     if (cfg.email) { a.href = "mailto:" + cfg.email; a.textContent = cfg.email; }
@@ -114,6 +115,11 @@
       card.classList.add("is-active");
       if (detailTitle) detailTitle.textContent = card.getAttribute("data-title");
       if (detailImg) detailImg.src = card.getAttribute("data-img");
+      var sub = document.querySelector("[data-detail-subtitle]");
+      if (sub) sub.textContent = card.getAttribute("data-subtitle") || "";
+      var body = document.querySelector("[data-detail-body]");
+      var tpl = card.querySelector("template");
+      if (body && tpl) body.innerHTML = tpl.innerHTML;
     });
   });
 

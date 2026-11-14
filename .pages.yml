@@ -1,0 +1,172 @@
+# Pages CMS configuration — https://pagescms.org
+# Open https://app.pagescms.org, sign in with GitHub and pick the Tessavana/WID repo.
+# Every save is committed to GitHub and GitHub Pages republishes the site (takes ~1 minute).
+
+media:
+  input: assets/img
+  output: /assets/img
+  categories: [image]
+
+content:
+  # ------------------------------------------------------------------ HOME
+  - name: home
+    label: Home page
+    type: file
+    path: _data/home.yml
+    fields:
+      - { name: hero_image, label: Welcome photo, type: image }
+      - { name: welcome_title, label: Welcome title, type: string }
+      - { name: welcome_intro, label: Welcome text, type: text }
+      - { name: welcome_points, label: Welcome bullet points, type: string, list: true }
+      - name: quote_1
+        label: Quote band 1 (with post-it)
+        type: object
+        fields:
+          - { name: title, label: Heading, type: string }
+          - { name: text, label: Quote, type: text }
+          - { name: postit, label: Post-it text (leave empty to hide), type: string }
+      - { name: vision_title, label: Vision title, type: string }
+      - { name: vision_text, label: Vision text, type: text }
+      - { name: mission_title, label: Mission title, type: string }
+      - { name: mission_text, label: Mission text, type: text }
+      - name: quote_2
+        label: Quote band 2 (with post-it)
+        type: object
+        fields:
+          - { name: title, label: Heading, type: string }
+          - { name: text, label: Quote, type: text }
+          - { name: postit, label: Post-it text (leave empty to hide), type: string }
+      - { name: discover_title, label: "'Discover us' title", type: string }
+      - { name: discover_points, label: "'Discover us' bullet points", type: string, list: true }
+      - name: collage
+        label: Photo collage (6 photos, in order left to right)
+        type: image
+        list: { min: 6, max: 6 }
+      - name: highlights
+        label: Highlights (3 columns under the collage)
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: points, label: Bullet points, type: string, list: true }
+      - { name: cta_text, label: Button text, type: string }
+      - { name: instagram_title, label: Instagram title, type: string }
+      - name: instagram_images
+        label: Instagram photos (6)
+        type: image
+        list: { max: 6 }
+      - { name: newsletter_title, label: Newsletter title, type: string }
+      - { name: newsletter_subtitle, label: Newsletter subtitle, type: string }
+
+  # ---------------------------------------------------------------- EVENTS
+  - name: events
+    label: Events
+    type: file
+    path: _data/events.yml
+    fields:
+      - { name: intro_title, label: Page title, type: string }
+      - { name: featured_heading, label: Upcoming events heading, type: string }
+      - name: featured
+        label: Upcoming events
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: subtitle, label: Subtitle, type: string }
+          - { name: date, label: Date (e.g. 12 March 2027 · 19:00), type: string }
+          - name: city
+            label: City
+            type: select
+            options: { values: [eindhoven, amsterdam, rotterdam] }
+          - name: topic
+            label: Topic
+            type: select
+            options: { values: [industry, inclusive, ai] }
+          - { name: image, label: Photo, type: image }
+          - { name: text, label: Description, type: text }
+          - { name: button_text, label: Button text (upcoming only), type: string }
+          - { name: link, label: Link (tickets or more info), type: string }
+      - { name: previous_heading, label: Previous events heading, type: string }
+      - name: previous
+        label: Previous events
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: subtitle, label: Subtitle, type: string }
+          - { name: date, label: Date (e.g. 12 March 2027 · 19:00), type: string }
+          - name: city
+            label: City
+            type: select
+            options: { values: [eindhoven, amsterdam, rotterdam] }
+          - name: topic
+            label: Topic
+            type: select
+            options: { values: [industry, inclusive, ai] }
+          - { name: image, label: Photo, type: image }
+          - { name: text, label: Description, type: text }
+          - { name: button_text, label: Button text (upcoming only), type: string }
+          - { name: link, label: Link (tickets or more info), type: string }
+
+  # ----------------------------------------------------------------- LEARN
+  - name: learn
+    label: Learn, connect, inspire
+    type: file
+    path: _data/learn.yml
+    fields:
+      - { name: intro_title, label: Page title, type: string }
+      - { name: intro_text, label: Intro text, type: text }
+      - name: items
+        label: Learnings (cards)
+        type: object
+        list: true
+        fields:
+          - name: category
+            label: Category
+            type: select
+            options: { values: [community, learning, tool] }
+          - { name: title, label: Title, type: string }
+          - { name: subtitle, label: Subtitle, type: string }
+          - name: topic
+            label: Topic
+            type: select
+            options: { values: [industry, inclusive, ai] }
+          - name: city
+            label: City
+            type: select
+            options: { values: [eindhoven, amsterdam, rotterdam] }
+          - { name: image, label: Photo, type: image }
+          - { name: summary, label: Short text on the card, type: text }
+          - { name: body, label: Full text (shown in the big box), type: rich-text }
+      - { name: detail_image, label: Photo in the big box (before a card is clicked), type: image }
+
+  # --------------------------------------------------------------- CONTACT
+  - name: contact
+    label: Contact page
+    type: file
+    path: _data/contact.yml
+    fields:
+      - { name: title_start, label: Title start, type: string }
+      - { name: title_highlight, label: Title highlighted word, type: string }
+      - { name: title_end, label: Title end, type: string }
+      - { name: form_title, label: Contact form title, type: string }
+      - { name: photo, label: Photo, type: image }
+      - { name: newsletter_placeholder, label: Newsletter field text, type: string }
+
+  # -------------------------------------------------------------- SETTINGS
+  - name: settings
+    label: Settings (email, links)
+    type: file
+    path: _data/site.yml
+    fields:
+      - { name: email, label: Email (contact form messages go here), type: string }
+      - { name: phone, label: Phone, type: string }
+      - { name: instagram_url, label: Instagram link, type: string }
+      - { name: tickets_url, label: Default ticket link, type: string }
+      - name: cities
+        label: City links (a QR code is generated for each)
+        type: object
+        fields:
+          - { name: eindhoven, label: Eindhoven, type: string }
+          - { name: amsterdam, label: Amsterdam, type: string }
+          - { name: rotterdam, label: Rotterdam, type: string }

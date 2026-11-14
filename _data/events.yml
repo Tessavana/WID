@@ -1,0 +1,32 @@
+intro_title: Want to join our event?
+featured_heading: Features Event.
+previous_heading: Previous Events
+
+featured:
+  - title: Title of event
+    subtitle: Description
+    date: ""
+    city: eindhoven
+    topic: ai
+    image: /assets/img/event-featured.jpg
+    text: Join us for an evening of talks, conversations and connection with women+ working in design. Short description of the programme, the speakers and what you will take home.
+    button_text: Buy Tickets
+    link: ""
+
+previous:
+  - title: Title of event
+    subtitle: Description
+    date: ""
+    city: eindhoven
+    topic: industry
+    image: /assets/img/event-previous-1.jpg
+    text: "A look back at the panel on navigating through the industry: honest stories, practical tips and lots of recognition from the room."
+    link: ""
+  - title: Title of event
+    subtitle: Description
+    date: ""
+    city: eindhoven
+    topic: inclusive
+    image: /assets/img/event-previous-2.jpg
+    text: A hands-on session on inclusive design, where we worked in small groups to map out who we design for — and who we forget.
+    link: ""

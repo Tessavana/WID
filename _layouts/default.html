@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:wght@400;500&family=Montserrat:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body class="{{ page.body_class }}">
+
+  <header class="nav">
+    <nav class="nav__inner" aria-label="Main">
+      <a class="nav__logo" href="{{ '/' | relative_url }}" aria-label="WID home">WID</a>
+      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav__links">
+        <li><a href="{{ '/events.html' | relative_url }}"{% if page.nav == 'events' %} aria-current="page"{% endif %}>Events</a></li>
+        <li><a href="{{ '/learn.html' | relative_url }}"{% if page.nav == 'learn' %} aria-current="page"{% endif %}>Learn, connect,inspire</a></li>
+        <li><a href="{{ '/contact.html' | relative_url }}"{% if page.nav == 'contact' %} aria-current="page"{% endif %}>Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+{{ content }}
+
+  <footer class="footer {{ page.footer_class }}"><a href="{{ '/' | relative_url }}">WID</a></footer>
+
+  <script>
+    window.WID_CONFIG = {
+      email: {{ site.data.site.email | jsonify }},
+      instagramUrl: {{ site.data.site.instagram_url | jsonify }},
+      ticketsUrl: {{ site.data.site.tickets_url | jsonify }},
+      cities: {{ site.data.site.cities | jsonify }}
+    };
+  </script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

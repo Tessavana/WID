@@ -1,0 +1,26 @@
+<form class="filters" data-filter="{{ include.target }}" onsubmit="return false">
+  <label class="filters__label" for="search">search</label>
+  <input id="search" type="search" data-filter-text>
+  {% assign keys = include.k1 | append: "," | append: include.k2 | append: "," | append: include.k3 | split: "," %}
+  {% for key in keys %}
+  <select data-filter-key="{{ key }}" aria-label="{{ key | capitalize }}"{% if forloop.last %} class="filters__spacer"{% endif %}>
+    <option value="">{{ key | capitalize }}</option>
+    {% if key == "topic" %}
+    <option value="industry">Navigating the industry</option>
+    <option value="inclusive">Inclusive design</option>
+    <option value="ai">AI &amp; intuition</option>
+    {% elsif key == "city" %}
+    <option value="eindhoven">Eindhoven</option>
+    <option value="amsterdam">Amsterdam</option>
+    <option value="rotterdam">Rotterdam</option>
+    {% elsif key == "type" %}
+    <option value="upcoming">Upcoming</option>
+    <option value="previous">Previous</option>
+    {% elsif key == "category" %}
+    <option value="community">Community</option>
+    <option value="learning">Learning</option>
+    <option value="tool">Tool</option>
+    {% endif %}
+  </select>
+  {% endfor %}
+</form>

@@ -1,35 +1,39 @@
 # WID — Women+ in Design (Eindhoven)
 
 Website for the Women+ in Design collective, founded by Sterre van de Boogaart.
-Plain HTML/CSS/JS — no build step. Open `index.html` in a browser, or host it on GitHub Pages
-(Settings → Pages → Deploy from branch → `main` / root).
+Live at **https://tessavana.github.io/WID/** (GitHub Pages).
 
-## Pages
-| File | Page |
-| --- | --- |
-| `index.html` | Home — welcome, quotes, vision & mission, discover us, Instagram, newsletter |
-| `events.html` | Events — search/filter, featured event, previous events |
-| `learn.html` | Learn, connect, inspire — search/filter, learning cards, detail view |
-| `contact.html` | Contact — contact form, details, newsletter, city tiles |
+## Editing content (no code needed) — Pages CMS
+1. Go to **https://app.pagescms.org** and sign in with GitHub.
+2. Open the **Tessavana/WID** repository.
+3. Pick a page in the menu (Home page, Events, Learn, Contact page, Settings), change text or upload/choose photos, and click **Save**.
+4. Every save is a commit on GitHub; GitHub Pages republishes the site within about a minute.
 
-## Settings (`assets/js/config.js`)
-- `email` — where the contact form and newsletter sign-ups are sent (via FormSubmit).
-  **The first submission sends a one-time confirmation email to this address — click the link once**,
-  after that every message lands directly in the mailbox.
-- `instagramUrl` — Instagram profile for the Instagram section.
-- `ticketsUrl` — ticket link for the featured event's "Buy Tickets" button.
-- `cities.eindhoven / amsterdam / rotterdam` — link per city. When filled in, a real scannable QR
-  code is generated on the contact page (until then a decorative placeholder is shown).
+To give someone editing access: on GitHub go to the repo → Settings → Collaborators → Add people.
+They need their own (free) GitHub account.
+
+## How it is built
+- **Jekyll** (built into GitHub Pages — no setup needed).
+- All texts and photo choices live in `_data/*.yml`; the HTML pages read from there.
+- Uploaded photos go to `assets/img/`.
+- `.pages.yml` describes the editing forms for Pages CMS.
+
+| File | Page | Content file |
+| --- | --- | --- |
+| `index.html` | Home | `_data/home.yml` |
+| `events.html` | Events | `_data/events.yml` |
+| `learn.html` | Learn, connect, inspire | `_data/learn.yml` |
+| `contact.html` | Contact | `_data/contact.yml` |
+| (all pages) | Email, phone, links | `_data/site.yml` |
+
+## Forms
+The contact form and newsletter sign-ups are sent to the email in **Settings** via FormSubmit
+(https://formsubmit.co). The very first submission sends a one-time confirmation email to that
+address — click the link in it once, after that messages arrive directly in the mailbox.
 
 ## Post-it notes
-The post-its from the design are on the site as sticky notes:
-- Home: "Opmerking over community" and "opmering over events" (green) on the two quote bands.
-- Contact: the yellow post-it ("Kan hier een contactformulier komen…?") is implemented as a working
-  contact form that sends messages straight to the mailbox.
+- Home: the two green post-its on the quote bands (editable; leave the text empty to hide one).
+- Contact: the yellow post-it is the working contact form.
 
-## Placeholder content
-Texts such as WELCOME, QUOTE, VISION/MISSION, "Title of event" and the phone number still follow the
-design placeholders — replace them in the HTML files. Photos are in `assets/img/`.
-
-## Fonts
-Archivo Black (headings), Roboto (body/nav), Lora (contact details), Montserrat (labels) — loaded from Google Fonts.
+## Own domain later?
+Set `baseurl: ""` in `_config.yml` and add the domain under Settings → Pages → Custom domain.

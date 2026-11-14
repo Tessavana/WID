@@ -1,0 +1,63 @@
+hero_image: /assets/img/hero-speaker.jpg
+welcome_title: WELCOME
+welcome_intro: A short warm werlcome to those people entering this website.
+welcome_points:
+  - Explenation about what the community is
+  - When you are at the good address
+
+quote_1:
+  title: QUOTE
+  text: '"..."'
+  postit: Opmerking over community
+
+vision_title: VISION
+vision_text: '"Description of what our vision is."'
+mission_title: MISSION
+mission_text: '"Description of what our misison is."'
+
+quote_2:
+  title: QUOTE
+  text: '"..."'
+  postit: opmering over events
+
+discover_title: Discover us...
+discover_points:
+  - Making a link with the previous events / learnings
+  - And, the events that will be there in the future
+collage:
+  - /assets/img/discover-speaker.jpg
+  - /assets/img/group-crowd.jpg
+  - /assets/img/discover-audience.jpg
+  - /assets/img/discover-panel.jpg
+  - /assets/img/discover-session.jpg
+  - /assets/img/insta-2.jpg
+
+highlights:
+  - title: Navigating through the industry
+    points:
+      - introduction
+      - 2 highlights
+      - 1 person
+  - title: Inclusive Design
+    points:
+      - introduction
+      - 2 highlights
+      - 1 person
+  - title: AI & Intuition
+    points:
+      - introduction
+      - 2 highlights
+      - 1 person
+cta_text: Discover more about how we learn, inspire & connect
+
+instagram_title: Women+ in Design on Instagram
+instagram_images:
+  - /assets/img/insta-1.jpg
+  - /assets/img/insta-2.jpg
+  - /assets/img/insta-3.jpg
+  - /assets/img/insta-4.jpg
+  - /assets/img/insta-5.jpg
+  - /assets/img/insta-6.jpg
+
+newsletter_title: Sign up for the newsletter
+newsletter_subtitle: also for men

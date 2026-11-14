@@ -1,37 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact — WID Women+ in Design</title>
-  <meta name="description" content="Get in contact with Women+ in Design — Eindhoven, Amsterdam and Rotterdam.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:wght@400;500&family=Montserrat:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body class="page-contact">
-
-  <header class="nav">
-    <nav class="nav__inner" aria-label="Main">
-      <a class="nav__logo" href="index.html" aria-label="WID home">WID</a>
-      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      <ul class="nav__links">
-        <li><a href="events.html">Events</a></li>
-        <li><a href="learn.html">Learn, connect,inspire</a></li>
-        <li><a href="contact.html" aria-current="page">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
+---
+layout: default
+title: Contact — WID Women+ in Design
+body_class: page-contact
+nav: contact
+footer_class: footer--coral
+---
+{% assign d = site.data.contact %}
+{% assign s = site.data.site %}
   <main class="contact textured">
     <div class="contact__grid">
       <!-- Left: contact form on the yellow post-it -->
       <section class="contact__panel reveal">
-        <h1 class="display">Get in <span>contact</span><br>with us.</h1>
+        <h1 class="display">{{ d.title_start }} <span>{{ d.title_highlight }}</span><br>{{ d.title_end }}</h1>
         <div class="contact__card">
           <div class="postit postit--yellow contact__postit">
-            <h2>Stuur ons een bericht</h2>
+            <h2>{{ d.form_title }}</h2>
             <form class="form" data-form="contact">
               <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
               <label for="c-name">Name</label>
@@ -49,22 +32,22 @@
 
       <!-- Right: photo + details -->
       <section class="reveal">
-        <img class="contact__photo" src="assets/img/group-crowd.jpg" alt="The WID community together at an event">
+        <img class="contact__photo" src="{{ d.photo | relative_url }}" alt="The WID community together at an event">
         <dl class="contact__list">
           <div class="contact__row">
             <dt>Email</dt>
-            <dd><a href="mailto:info@womenindesign.nl" data-email-link>info@womenindesign.nl</a></dd>
+            <dd><a href="mailto:{{ s.email }}">{{ s.email }}</a></dd>
           </div>
           <div class="contact__row">
             <dt>Telefoon</dt>
-            <dd><a href="tel:+31123123456">0123 12 34 56</a></dd>
+            <dd><a href="tel:{{ s.phone | remove: ' ' }}">{{ s.phone }}</a></dd>
           </div>
           <div class="contact__row">
             <dt>Newsletter</dt>
             <dd>
               <form data-form="newsletter">
                 <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
-                <input type="email" name="email" placeholder="sign up for the newsletter..." aria-label="Email for newsletter" required>
+                <input type="email" name="email" placeholder="{{ d.newsletter_placeholder }}" aria-label="Email for newsletter" required>
                 <button type="submit" aria-label="Sign up">→</button>
               </form>
               <p class="form__status" role="status" style="margin:6px 0 0;font-size:15px"></p>
@@ -77,32 +60,16 @@
     <!-- Cities -->
     <div class="cities">
       <a class="city city--ehv reveal" href="#" data-city-link="eindhoven">
-        <div class="city__tile">
-          <svg viewBox="0 0 80 100" aria-hidden="true"><polygon points="0,100 0,78 46,68 0,58 0,42 46,32 0,22 0,0 80,20 80,42 40,50 80,58 80,80"/></svg>
-          Eindhoven
-        </div>
+        <div class="city__tile">{% include w.html %} Eindhoven</div>
         <div class="city__qr" data-qr="eindhoven"></div>
       </a>
       <a class="city city--ams reveal" href="#" data-city-link="amsterdam">
-        <div class="city__tile">
-          <svg viewBox="0 0 80 100" aria-hidden="true"><polygon points="0,100 0,78 46,68 0,58 0,42 46,32 0,22 0,0 80,20 80,42 40,50 80,58 80,80"/></svg>
-          Amsterdam
-        </div>
+        <div class="city__tile">{% include w.html %} Amsterdam</div>
         <div class="city__qr" data-qr="amsterdam"></div>
       </a>
       <a class="city city--rtm reveal" href="#" data-city-link="rotterdam">
-        <div class="city__tile">
-          <svg viewBox="0 0 80 100" aria-hidden="true"><polygon points="0,100 0,78 46,68 0,58 0,42 46,32 0,22 0,0 80,20 80,42 40,50 80,58 80,80"/></svg>
-          Rotterdam
-        </div>
+        <div class="city__tile">{% include w.html %} Rotterdam</div>
         <div class="city__qr" data-qr="rotterdam"></div>
       </a>
     </div>
   </main>
-
-  <footer class="footer footer--coral"><a href="index.html">WID</a></footer>
-
-  <script src="assets/js/config.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
-</html>

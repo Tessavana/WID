@@ -1,0 +1,52 @@
+intro_title: Want to learn more?
+intro_text: Stories, learnings and tools from our events — read, share and pass them on.
+
+items:
+  - category: community
+    title: Community
+    subtitle: Description
+    topic: industry
+    city: eindhoven
+    image: /assets/img/learn-1.jpg
+    summary: What happens when you bring a room full of women+ in design together? The conversations, connections and recognition that came out of our evenings.
+    body: |
+      Every WID event ends with something to take home. In this space we share the learnings of an evening: what was discussed, which questions stayed with us and which ideas we want to keep working on.
+
+      Think of key insights from the panel, quotes from speakers, the outcomes of the group sessions and links to tools, books or people that were mentioned during the evening.
+
+      Were you there and want to add something? Or would you like to share your own learning with the community? Get in touch through the contact page — we would love to hear from you.
+  - category: learning
+    title: Title of Learning
+    subtitle: Description
+    topic: inclusive
+    city: eindhoven
+    image: /assets/img/learn-2.jpg
+    summary: The canvas we used during the inclusive design session, the questions it raised and the insights each table shared afterwards.
+    body: |
+      The canvas we used during the inclusive design session, the questions it raised and the insights each table shared afterwards.
+
+      Replace this text with the full story of this learning.
+  - category: community
+    title: Community
+    subtitle: Description
+    topic: ai
+    city: eindhoven
+    image: /assets/img/learn-3.jpg
+    summary: "Meet the people behind WID: who joins, why they come back and what they find at the table."
+    body: |
+      Meet the people behind WID: who joins, why they come back and what they find at the table.
+
+      Replace this text with the full story.
+  - category: tool
+    title: Tool
+    subtitle: Description
+    topic: industry
+    city: eindhoven
+    image: /assets/img/learn-4.jpg
+    summary: A practical tool to take into your own work and team. Download it, try it and let us know how it went.
+    body: |
+      A practical tool to take into your own work and team. Download it, try it and let us know how it went.
+
+      Replace this text with an explanation of the tool.
+
+detail_image: /assets/img/learn-detail.jpg

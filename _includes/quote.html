@@ -1,0 +1,9 @@
+<section class="quote-band textured">
+  <div class="quote-band__inner">
+    <div class="quote-band__quote">
+      <h2 class="display">{{ include.q.title }}</h2>
+      <blockquote>{{ include.q.text }}</blockquote>
+    </div>
+    {% if include.q.postit and include.q.postit != "" %}<aside class="postit" aria-label="Note">{{ include.q.postit }}</aside>{% endif %}
+  </div>
+</section>

@@ -234,6 +234,7 @@ ul { margin: 0; }
 }
 .collage img { position: absolute; object-fit: cover; }
 .collage .c1 { left: 0;     top: 0;   width: 36%; height: 100%; object-position: 50% 30%; }
+.collage .c2, .collage .c4, .collage .c5, .collage .c6 { z-index: 1; }
 .collage .c2 { left: 27.5%; top: 7%;  width: 23.5%; height: 85%; }
 .collage .c3 { left: 41.5%; top: 0;   width: 27.5%; height: 100%; }
 .collage .c4 { left: 50.5%; top: 7%;  width: 14.5%; height: 42%; object-position: 50% 30%; }

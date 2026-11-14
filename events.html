@@ -1,100 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Events — WID Women+ in Design</title>
-  <meta name="description" content="Upcoming and previous events of Women+ in Design Eindhoven.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:wght@400;500&family=Montserrat:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body class="page-events">
-
-  <header class="nav">
-    <nav class="nav__inner" aria-label="Main">
-      <a class="nav__logo" href="index.html" aria-label="WID home">WID</a>
-      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      <ul class="nav__links">
-        <li><a href="events.html" aria-current="page">Events</a></li>
-        <li><a href="learn.html">Learn, connect,inspire</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
+---
+layout: default
+title: Events — WID Women+ in Design
+body_class: page-events
+nav: events
+---
+{% assign d = site.data.events %}
   <main>
-    <form class="filters" data-filter=".event" onsubmit="return false">
-      <label class="filters__label" for="ev-search">search</label>
-      <input id="ev-search" type="search" data-filter-text placeholder="">
-      <select data-filter-key="topic" aria-label="Topic">
-        <option value="">Topic</option>
-        <option value="industry">Navigating the industry</option>
-        <option value="inclusive">Inclusive design</option>
-        <option value="ai">AI &amp; intuition</option>
-      </select>
-      <select data-filter-key="city" aria-label="City">
-        <option value="">City</option>
-        <option value="eindhoven">Eindhoven</option>
-        <option value="amsterdam">Amsterdam</option>
-        <option value="rotterdam">Rotterdam</option>
-      </select>
-      <select data-filter-key="type" class="filters__spacer" aria-label="Type">
-        <option value="">Type</option>
-        <option value="upcoming">Upcoming</option>
-        <option value="previous">Previous</option>
-      </select>
-    </form>
+    {% include filters.html target=".event" k1="topic" k2="city" k3="type" %}
 
     <section class="events">
-      <svg class="wdeco wdeco--maroon" viewBox="0 0 80 100" aria-hidden="true"><polygon points="0,100 0,78 46,68 0,58 0,42 46,32 0,22 0,0 80,20 80,42 40,50 80,58 80,80"/></svg>
+      {% include w.html class="wdeco wdeco--maroon" %}
 
       <div class="events__featured">
-        <h1 class="display events__intro reveal">Want to join our event?</h1>
-        <h2 class="display events__heading">Features Event.</h2>
+        <h1 class="display events__intro reveal">{{ d.intro_title }}</h1>
+        <h2 class="display events__heading">{{ d.featured_heading }}</h2>
 
-        <article class="event reveal" data-topic="ai" data-city="eindhoven" data-type="upcoming">
-          <img class="event__img" src="assets/img/event-featured.jpg" alt="">
+        {% for e in d.featured %}
+        <article class="event reveal" data-topic="{{ e.topic }}" data-city="{{ e.city }}" data-type="upcoming">
+          <img class="event__img" src="{{ e.image | relative_url }}" alt="">
           <div>
-            <h3 class="display">Title of event</h3>
-            <p class="event__desc">Description</p>
-            <p class="event__text">Join us for an evening of talks, conversations and connection with women+ working in design. Short description of the programme, the speakers and what you will take home.</p>
-            <a class="btn btn--sm" href="#" data-tickets>Buy Tickets</a>
+            <h3 class="display">{{ e.title }}</h3>
+            {% if e.date and e.date != "" %}<p class="event__meta">{{ e.date }}</p>{% endif %}
+            <p class="event__desc">{{ e.subtitle }}</p>
+            <p class="event__text">{{ e.text }}</p>
+            <a class="btn btn--sm" href="{% if e.link and e.link != "" %}{{ e.link }}{% else %}#{% endif %}" data-tickets data-fallback="{{ '/contact.html' | relative_url }}">{% if e.button_text and e.button_text != "" %}{{ e.button_text }}{% else %}Buy Tickets{% endif %}</a>
           </div>
         </article>
+        {% endfor %}
         <p class="events__empty is-hidden" data-empty>No events match your search.</p>
       </div>
 
       <div class="events__previous reveal">
-        <h2 class="display events__heading">Previous Events</h2>
+        <h2 class="display events__heading">{{ d.previous_heading }}</h2>
 
-        <article class="event" data-topic="industry" data-city="eindhoven" data-type="previous">
-          <img class="event__img" src="assets/img/event-previous-1.jpg" alt="">
+        {% for e in d.previous %}
+        <article class="event" data-topic="{{ e.topic }}" data-city="{{ e.city }}" data-type="previous">
+          <img class="event__img" src="{{ e.image | relative_url }}" alt="">
           <div>
-            <h3 class="display">Title of event</h3>
-            <p class="event__desc">Description</p>
-            <p class="event__text">A look back at the panel on navigating through the industry: honest stories, practical tips and lots of recognition from the room.</p>
-            <a class="btn btn--sm" href="learn.html">Read More</a>
+            <h3 class="display">{{ e.title }}</h3>
+            {% if e.date and e.date != "" %}<p class="event__meta">{{ e.date }}</p>{% endif %}
+            <p class="event__desc">{{ e.subtitle }}</p>
+            <p class="event__text">{{ e.text }}</p>
+            <a class="btn btn--sm" href="{% if e.link and e.link != "" %}{{ e.link }}{% else %}{{ '/learn.html' | relative_url }}{% endif %}">Read More</a>
           </div>
         </article>
-
-        <article class="event" data-topic="inclusive" data-city="eindhoven" data-type="previous">
-          <img class="event__img" src="assets/img/event-previous-2.jpg" alt="">
-          <div>
-            <h3 class="display">Title of event</h3>
-            <p class="event__desc">Description</p>
-            <p class="event__text">A hands-on session on inclusive design, where we worked in small groups to map out who we design for — and who we forget.</p>
-            <a class="btn btn--sm" href="learn.html">Read More</a>
-          </div>
-        </article>
+        {% endfor %}
       </div>
     </section>
   </main>
-
-  <footer class="footer"><a href="index.html">WID</a></footer>
-
-  <script src="assets/js/config.js"></script>
-  <script src="assets/js/main.js"></script>
-</body>
-</html>
