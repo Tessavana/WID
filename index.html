@@ -8,7 +8,9 @@ nav: home
   <main>
     <!-- Welcome -->
     <section class="hero">
-      <img class="hero__img" src="{{ d.hero_image | relative_url }}" alt="A speaker addresses the WID community">
+      <video class="hero__img" autoplay muted loop playsinline preload="auto" poster="{{ d.hero_image | relative_url }}" aria-label="Women+ in Design aftermovie">
+        <source src="{{ '/assets/video/home-hero.mp4' | relative_url }}" type="video/mp4">
+      </video>
       <div class="hero__text">
         <h1 class="display reveal">{{ d.welcome_title }}</h1>
         <div class="hero__lead reveal">
