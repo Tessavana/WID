@@ -1,4 +1,3 @@
-hero_video: /assets/img/home-hero.mp4
 welcome_title: WELCOME!!!
 welcome_intro: A short warm werlcome to those people entering this website. test
 welcome_points:
@@ -10,7 +9,7 @@ quote_1:
     Eindhoven. A space to learn from one another, build real connections, and
     feel represented in the field."'
 vision_title: VISION
-vision_text: '"Description of what our vision is."'
+vision_text: '"Description of what our vision is. xyzzy"'
 mission_title: MISSION
 mission_text: '"Description of what our misison is."'
 quote_2:
