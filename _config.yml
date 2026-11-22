@@ -2,10 +2,9 @@
 title: WID — Women+ in Design
 description: Women+ in Design (WID) is a collective in Eindhoven where women+ in design learn, connect and inspire each other.
 
-# The site lives at https://tessavana.github.io/WID/
-# If you move it to its own domain (e.g. womenindesign.nl), set baseurl to "".
-url: "https://tessavana.github.io"
-baseurl: "/WID"
+# The site lives at https://womenindesign.nl/
+url: "https://womenindesign.nl"
+baseurl: ""
 
 exclude:
   - README.md
