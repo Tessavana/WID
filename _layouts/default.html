@@ -30,6 +30,7 @@
 
   <script>
     window.WID_CONFIG = {
+      baseurl: {{ site.baseurl | jsonify }},
       email: {{ site.data.site.email | jsonify }},
       instagramUrl: {{ site.data.site.instagram_url | jsonify }},
       ticketsUrl: {{ site.data.site.tickets_url | jsonify }},

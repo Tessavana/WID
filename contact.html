@@ -9,24 +9,22 @@ footer_class: footer--coral
 {% assign s = site.data.site %}
   <main class="contact textured">
     <div class="contact__grid">
-      <!-- Left: contact form on the yellow post-it -->
+      <!-- Left: contact form -->
       <section class="contact__panel reveal">
         <h1 class="display">{{ d.title_start }} <span>{{ d.title_highlight }}</span><br>{{ d.title_end }}</h1>
         <div class="contact__card">
-          <div class="postit postit--yellow contact__postit">
-            <h2>{{ d.form_title }}</h2>
-            <form class="form" data-form="contact">
-              <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
-              <label for="c-name">Name</label>
-              <input id="c-name" type="text" name="name" required>
-              <label for="c-email">Email</label>
-              <input id="c-email" type="email" name="email" required>
-              <label for="c-msg">Message</label>
-              <textarea id="c-msg" name="message" required></textarea>
-              <button class="btn btn--sm" type="submit">Send</button>
-              <p class="form__status" role="status"></p>
-            </form>
-          </div>
+          <h2 class="contact__card-title">{{ d.form_title }}</h2>
+          <form class="form" data-form="contact">
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+            <label for="c-name">Name</label>
+            <input id="c-name" type="text" name="name" required>
+            <label for="c-email">Email</label>
+            <input id="c-email" type="email" name="email" required>
+            <label for="c-msg">Message</label>
+            <textarea id="c-msg" name="message" required></textarea>
+            <button class="btn btn--sm" type="submit">Send</button>
+            <p class="form__status" role="status"></p>
+          </form>
         </div>
       </section>
 

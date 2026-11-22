@@ -164,9 +164,24 @@ content:
       - { name: instagram_url, label: Instagram link, type: string }
       - { name: tickets_url, label: Default ticket link, type: string }
       - name: cities
-        label: City links (a QR code is generated for each)
+        label: Community QR codes
         type: object
         fields:
-          - { name: eindhoven, label: Eindhoven, type: string }
-          - { name: amsterdam, label: Amsterdam, type: string }
-          - { name: rotterdam, label: Rotterdam, type: string }
+          - name: eindhoven
+            label: Eindhoven
+            type: object
+            fields:
+              - { name: link, label: "Link (a QR code is generated from this)", type: string }
+              - { name: qr, label: "Or upload a QR image (optional, overrides the link)", type: image }
+          - name: amsterdam
+            label: Amsterdam
+            type: object
+            fields:
+              - { name: link, label: "Link (a QR code is generated from this)", type: string }
+              - { name: qr, label: "Or upload a QR image (optional, overrides the link)", type: image }
+          - name: rotterdam
+            label: Rotterdam
+            type: object
+            fields:
+              - { name: link, label: "Link (a QR code is generated from this)", type: string }
+              - { name: qr, label: "Or upload a QR image (optional, overrides the link)", type: image }

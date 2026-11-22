@@ -39,22 +39,26 @@
   });
 
   /* City tiles + QR codes ------------------------------------------------ */
+  function asset(p) { return (p && p.charAt(0) === "/") ? (cfg.baseurl || "") + p : p; }
   document.querySelectorAll("[data-city-link]").forEach(function (a) {
-    var url = cfg.cities && cfg.cities[a.getAttribute("data-city-link")];
+    var city = (cfg.cities && cfg.cities[a.getAttribute("data-city-link")]) || {};
+    if (typeof city === "string") city = { link: city };     // backward compatible
+    var link = city.link || "";
+    var qrImage = city.qr || "";
     var qr = a.querySelector("[data-qr]");
-    if (url) {
-      a.href = url; a.target = "_blank"; a.rel = "noopener";
-      if (qr) {
-        var img = new Image();
-        img.alt = "QR code";
-        img.style.width = "100%";
-        img.src = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&data=" + encodeURIComponent(url);
-        qr.appendChild(img);
+    if (link) { a.href = link; a.target = "_blank"; a.rel = "noopener"; }
+    else { a.removeAttribute("href"); a.style.cursor = "default"; }
+    if (qr) {
+      if (qrImage) {                                          // uploaded QR wins
+        var im = new Image(); im.alt = "QR code"; im.style.width = "100%";
+        im.src = asset(qrImage); qr.appendChild(im);
+      } else if (link) {                                      // else generate from the link
+        var im2 = new Image(); im2.alt = "QR code"; im2.style.width = "100%";
+        im2.src = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&data=" + encodeURIComponent(link);
+        qr.appendChild(im2);
+      } else {
+        qr.innerHTML = placeholderQR();
       }
-    } else {
-      a.removeAttribute("href");
-      a.style.cursor = "default";
-      if (qr) qr.innerHTML = placeholderQR();
     }
   });
 
