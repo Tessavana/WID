@@ -14,7 +14,6 @@ content:
     type: file
     path: _data/home.yml
     fields:
-      - { name: hero_video, label: "Hero video (home page — upload an .mp4; it loops muted)", type: file }
       - { name: welcome_title, label: Welcome title, type: string }
       - { name: welcome_intro, label: Welcome text, type: text }
       - { name: welcome_points, label: Welcome bullet points, type: string, list: true }
